@@ -22,8 +22,9 @@ class Data:
         return val
 
     def add(self, firstname, lastname, guests,
-            attending=None, middlename=None):
-        name = self.genrandom()
+            attending=None, middlename=None, name=None):
+        if not name:
+            name = self.genrandom()
         try:
             self.conn.hset(name, 'invitecode', name)
             self.conn.hset(name, 'firstname', firstname)
