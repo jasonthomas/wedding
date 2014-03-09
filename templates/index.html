@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Jason &amp; Bincy - June 28 2014</title>
+
+<!-- Bootstrap core CSS -->
+<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+<!-- Fonts -->
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Cinzel:400,700|Great+Vibes' rel='stylesheet' type='text/css' />
+
+<!-- Custom styles for this template -->
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ url_for('static', filename='sticky.css') }}" type="text/css" />
+
+<!-- Just for debugging purposes. Don't actually copy this line! -->
+<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav names">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#event">Event</a></li>
+        <li><a class="modalButton" data-toggle="modal" data-target="#myInvitation">Invitation</a>
+        <li><a class="modalButton" data-toggle="modal" data-target="#myModal">RSVP</a>
+        <li><a href="#directions">Directions</a></li>
+        <li><a href="#registry">Registry</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<!-- Begin page content -->
+<div class="container solid">
+  <section class="home">
+    <div class="page-header">
+      <div class="names">
+        Jason &#38; Bincy
+      </div>
+      <div class="snames">
+        06.28.14
+      </div>
+    </div>
+  </section>
+</div>
+</br></br>
+<div class="container solid" id='event'>
+  <div class="col-md-12">
+    <div class="topic">
+      <h1>Event</h1>
+    </div>
+    <center>
+      <ul class="list-unstyled fonts">
+        <li>Please join us</li>
+        <li>on</li>
+        <li>Saturday, June 28th 2014</li>
+        <li>at</li>
+        <li>9:30 am</li>
+        <li>at</li>
+        <li>Greentree Country Club</li>
+        <li>New Rochelle, NY</li>
+        <li>Reception to follow at Greentree Country Club</li>
+      </center>
+    </ul>
+  </div>
+</div>
+</br></br>
+<div class="container solid" id='directions'>
+  <div class="col-md-12">
+    <div class="topic">
+      <h1>Directions</h1>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 textcolor">
+        <address>
+          <strong>Greentree Country Club</strong><br>
+          538 Davenport Ave<br>
+          New Rochelle, NY 10805<br>
+          <abbr title="Phone">P:</abbr> (914) 636-8500
+        </address>
+      </div>
+      <div class="col-sm-9">
+        <div id="gmaps">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3016.0148565142404!2d-73.774661!3d40.89348900000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c28db9d1839aa7%3A0x37dc9dabc0747c4d!2s538+Davenport+Ave!5e0!3m2!1sen!2sus!4v1393208741971" frameborder="0" style="border:0"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</br></br>
+<div class="container solid" id='registry'>
+  <div class="col-md-12">
+    <div class="topic">
+      <h1>Registry</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <center><a href='http://www.amazon.com/registry/wedding/LWI99WEOKMRA' target="_blank"><img src="{{ url_for('static', filename='img/amazon.png') }}" width="50%" height="50%"></a></center>
+      </div>
+      <div class="col-md-6">
+        <center><a href='http://www1.macys.com/registry/wedding/guest/?registryId=6089635' target="_blank"><img src="{{ url_for('static', filename='img/macys.png') }}" width="50%" height="50%"></a></center>
+      </div>
+    </div>
+  </div>
+</div>
+</br></br>
+<div class="container solid" id='contact'>
+  <div class="col-md-12">
+    <div class="topic">
+      <h1>Contact</h1>
+    </div>
+    <div class="fonts">
+      <center>
+        <address>
+          <strong>Benjamin Baby (516) 555-5555</abbr></strong><br>
+          <strong>Thomas C. Varghese (516) 555-5555</abbr></strong><br>
+          <strong>wedding@jasonandbincy.com</strong><br>
+        </address>
+      </center>
+    </div>
+  </div>
+</div>
+<!-- Modal RSVP -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <iframe src='/register' height='500' width='900' frameborder="0"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal Invitation -->
+<div class="modal fade" id="myInvitation" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <center><img src="{{ url_for('static', filename='img/invitation.png') }}"></center>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

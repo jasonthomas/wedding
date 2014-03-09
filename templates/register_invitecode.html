@@ -1,0 +1,33 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "bootstrap/fixes.html" as fixes %}
+
+{% block head %}
+{{super()}}
+{{fixes.ie8()}}
+<link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}" type="text/css" />
+<!-- Fonts -->
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Cinzel:400,700|Great+Vibes' rel='stylesheet' type='text/css' />
+{% endblock %}
+
+{% block content %}
+<div class="container purpleborder">
+    <div class="col3 flower">
+    </div>
+    {% if lookup['attending']=='None' %}
+    <div class="col5">
+        <div class="fonts">
+            <h1>Welcome {{ lookup['firstname'] }} {{ lookup['lastname'] }}</h1>
+        </div>
+        <div class="readable">
+            {{ wtf.quick_form(form, button_map={'submit_button': 'primary'}) }}
+        </div>
+    </div>
+    {% else %}
+    <div class="col5 fonts">
+        <h1>You've already registered. Thanks!</h1>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

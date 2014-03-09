@@ -1,0 +1,32 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "bootstrap/fixes.html" as fixes %}
+
+{% block head %}
+{{super()}}
+{{fixes.ie8()}}
+<link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}" type="text/css" />
+<!-- Fonts -->
+<link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Cinzel:400,700|Great+Vibes' rel='stylesheet' type='text/css' />
+{% endblock %}
+{% block content %}
+
+<div class="container purpleborder">
+    <div class="col3 flower">
+    </div>
+    <div class="col5">
+        <div class="fonts">
+            <h1>Registration completed. Thanks!</h1>
+        </div>
+        <div class="readable">
+            <ul class="list-group">
+                <li class="list-group-item">Invite Code: {{ lookup['invitecode'] }}</li>
+                <li class="list-group-item">Last Name: {{ lookup['lastname'] }} </li>
+                <li class="list-group-item">Attending: {{ lookup['attending'] }} </li>
+                <li class="list-group-item">Guests# : {{ lookup['actual_guests'] }} </li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

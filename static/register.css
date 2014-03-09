@@ -1,0 +1,33 @@
+.purpleborder {
+    border:15px solid #3D296B;
+}
+
+.container {
+    padding: 0;
+    width: 900px;
+}
+.col3 {
+    float:left;
+    width: 250px;
+}
+.col5 {
+    float:left;
+    width: 600px;
+}
+
+.fonts {
+    color: #2E1859;
+    font-family: 'Great Vibes',cursive;
+    font-size: 20px;
+}
+
+.readable {
+    font-family: 'Droid'
+    font-size: 20px;
+}
+
+.flower {
+    background-image: url(img/flower.png);
+    min-height: 450px;
+    background-repeat: no-repeat;
+}

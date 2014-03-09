@@ -1,0 +1,21 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "bootstrap/fixes.html" as fixes %}
+
+{% block content %}
+<div class="container">
+  <h1>Invite Add Done</h1>
+<ul class="list-group">
+  <li class="list-group-item">Invite Code: {{ code }}</li>
+  <li class="list-group-item">Name: {{ data['firstname'] }} {{ data['middlename'] }} {{ data['lastname'] }} </li>
+  <li class="list-group-item">Guests #: {{ data['number'] }} </li>
+</ul>
+
+
+</div>
+{% endblock %}
+
+{% block head %}
+{{super()}}
+{{fixes.ie8()}}
+{% endblock %}
