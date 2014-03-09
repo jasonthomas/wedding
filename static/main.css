@@ -26,8 +26,14 @@ body > .container {
      padding-top: 35px;
 }
 
+.flower {
+    background-image: url(img/flower-small.png);
+    min-height: 250px;
+    background-repeat: no-repeat;
+}
+
 .names {
-    color: #2E1859;
+    color: #3D296B;
     font-family: 'Great Vibes',cursive;
     font-size: 111px;
     text-align: center;
@@ -38,14 +44,14 @@ body > .container {
 }
 
 .snames {
-    color: #2E1859;
+    color: #3D296B;
     font-family: 'Great Vibes',cursive;
     text-align: center;
     font-size: 40px;
 }
 
 .textcolor {
-    color: #2E1859;
+    color: #3D296B;
 
 }
 .page-header {
@@ -61,7 +67,7 @@ body > .container {
 }
 
 .fonts {
-    color: #2E1859;
+    color: #3D296B;
     font-family: 'Great Vibes',cursive;
     font-size: 30px;
 }
@@ -83,7 +89,7 @@ body > .container {
 
 
 .topic {
-    color: #2E1859;
+    color: #3D296B;
     font-family: 'Great Vibes',cursive;
     font-size: 50px;
 }
