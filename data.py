@@ -7,6 +7,9 @@ class Data:
     def __init__(self, host='localhost'):
         self.conn = redis.Redis(host)
 
+    def getallkeys(self):
+        return self.conn.keys('*')
+
     def getkey(self, key):
         return self.conn.hkeys(key)
 
