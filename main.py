@@ -24,6 +24,7 @@ def populate_list(total):
         counter += 1
     return mylist
 
+
 def is_valid(invitecode, lastname):
     user = Data()
     lookup = user.getvalue(invitecode)
@@ -36,6 +37,7 @@ def is_valid(invitecode, lastname):
         return True
     else:
         return False
+
 
 @app.route('/')
 def index():
@@ -50,9 +52,13 @@ def viewreport():
         for code in codes:
             invite = data.getvalue(code)
             if 'actual_guests' in invite:
-                yield '%s: %s %s attending: %s guests: %s\n' % (code, invite['firstname'],
-                                                              invite['lastname'], invite['attending'],
-                                                              invite['actual_guests'])
+                yield '%s: %s %s '\
+                      'attending: %s '\
+                      'guests: %s\n' % (code,
+                                        invite['firstname'],
+                                        invite['lastname'],
+                                        invite['attending'],
+                                        invite['actual_guests'])
     return Response(report(),  mimetype='text/plain')
 
 
@@ -69,6 +75,7 @@ def add():
         return render_template('add.done.html', code=code, data=form.data)
     else:
         return render_template('add.html', form=form)
+
 
 @app.route('/register/<invitecode>', methods=['GET', 'POST'])
 def register_invitecode(invitecode=None):
@@ -96,6 +103,7 @@ def register_invitecode(invitecode=None):
     else:
         return render_template('register_invitecode.html', lookup=lookup,
                                form=form)
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
