@@ -48,7 +48,7 @@ def index():
 def viewreport():
     def report():
         data = Data()
-        codes = data.getallkeys()
+        codes = sorted(data.getallkeys())
         for code in codes:
             invite = data.getvalue(code)
             if 'actual_guests' in invite:
