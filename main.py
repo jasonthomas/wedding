@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, flash, redirect
+from flask import Flask, render_template, request, flash, redirect, Response
 from flask_bootstrap import Bootstrap
 from flask_appconfig import AppConfig
 from forms import AddForm, RegisterForm, RegisterFormVerify
@@ -14,6 +14,7 @@ Bootstrap(app)
 
 app.config['SECRET_KEY'] = 'devkey'
 app.config['RECAPTCHA_PUBLIC_KEY'] = None
+
 
 def populate_list(total):
     mylist = []
@@ -39,6 +40,21 @@ def is_valid(invitecode, lastname):
 @app.route('/')
 def index():
     return render_template('index.html')
+
+
+@app.route('/report')
+def viewreport():
+    def report():
+        data = Data()
+        codes = data.getallkeys()
+        for code in codes:
+            invite = data.getvalue(code)
+            if 'actual_guests' in invite:
+                yield '%s: %s %s attending: %s guests: %s\n' % (code, invite['firstname'],
+                                                              invite['lastname'], invite['attending'],
+                                                              invite['actual_guests'])
+    return Response(report(),  mimetype='text/plain')
+
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
