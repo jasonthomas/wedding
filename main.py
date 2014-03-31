@@ -48,6 +48,7 @@ def index():
 def viewreport():
     def report():
         data = Data()
+        total = 0
         codes = sorted(data.getallkeys())
         for code in codes:
             invite = data.getvalue(code)
@@ -59,6 +60,8 @@ def viewreport():
                                         invite['lastname'],
                                         invite['attending'],
                                         invite['actual_guests'])
+                total += int(invite['actual_guests'])
+        yield 'total: %s\n' % total
     return Response(report(),  mimetype='text/plain')
 
 
