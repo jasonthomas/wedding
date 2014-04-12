@@ -1,6 +1,7 @@
 import redis
 import string
 import random
+import time
 
 
 class Data:
@@ -16,7 +17,7 @@ class Data:
     def getvalue(self, key):
         return self.conn.hgetall(key)
 
-    def genrandom(self, length=5):
+    def genrandom(self, length=6):
         unique = False
         while not unique:
             val = ''.join(random.sample(string.digits, length))
@@ -44,5 +45,6 @@ class Data:
         try:
             self.conn.hset(name, 'attending', attending)
             self.conn.hset(name, 'actual_guests', actual_guests)
+            self.conn.hset(name, 'time', time.time())
         except:
             print "error"

@@ -3,6 +3,7 @@ from flask_bootstrap import Bootstrap
 from flask_appconfig import AppConfig
 from forms import AddForm, RegisterForm, RegisterFormVerify
 from data import Data
+import time
 
 
 configfile = None
@@ -49,17 +50,22 @@ def viewreport():
     def report():
         data = Data()
         total = 0
+        date = 'N/A'
         codes = sorted(data.getallkeys())
         for code in codes:
             invite = data.getvalue(code)
             if 'actual_guests' in invite:
+                if 'time' in invite:
+                    date = time.strftime('%Y-%m-%d %H:%M:%S',
+                                         time.localtime(float(invite['time'])))
                 yield '%s: %s %s '\
                       'attending: %s '\
-                      'guests: %s\n' % (code,
-                                        invite['firstname'],
-                                        invite['lastname'],
-                                        invite['attending'],
-                                        invite['actual_guests'])
+                      'guests: %s date: %s\n' % (code,
+                                                 invite['firstname'],
+                                                 invite['lastname'],
+                                                 invite['attending'],
+                                                 invite['actual_guests'],
+                                                 date)
                 total += int(invite['actual_guests'])
         yield 'total: %s\n' % total
     return Response(report(),  mimetype='text/plain')
@@ -123,4 +129,4 @@ def register():
         return render_template('register.html', form=form)
 
 if __name__ == '__main__':
-        app.run()
+        app.run(host='0.0.0.0')
