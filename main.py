@@ -58,14 +58,15 @@ def viewreport():
                 if 'time' in invite:
                     date = time.strftime('%Y-%m-%d %H:%M:%S',
                                          time.localtime(float(invite['time'])))
-                yield '%s: %s %s '\
-                      'attending: %s '\
-                      'guests: %s date: %s\n' % (code,
-                                                 invite['firstname'],
-                                                 invite['lastname'],
-                                                 invite['attending'],
-                                                 invite['actual_guests'],
-                                                 date)
+                yield '%-24s'\
+                      '%s %-20s %-20s'\
+                      '%-8s'\
+                      '%-4s\n' % (date, code,
+                                  invite['firstname'],
+                                  invite['lastname'],
+                                  invite['attending'],
+                                  invite['actual_guests'],
+                                  )
                 total += int(invite['actual_guests'])
         yield 'total: %s\n' % total
     return Response(report(),  mimetype='text/plain')
@@ -129,4 +130,4 @@ def register():
         return render_template('register.html', form=form)
 
 if __name__ == '__main__':
-        app.run(host='0.0.0.0')
+        app.run()
