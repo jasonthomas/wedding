@@ -50,11 +50,11 @@ def viewreport():
     def report():
         data = Data()
         total = 0
-        date = 'N/A'
         codes = sorted(data.getallkeys())
         for code in codes:
             invite = data.getvalue(code)
             if 'actual_guests' in invite:
+                date = 'N/A'
                 if 'time' in invite:
                     date = time.strftime('%Y-%m-%d %H:%M:%S',
                                          time.localtime(float(invite['time'])))
